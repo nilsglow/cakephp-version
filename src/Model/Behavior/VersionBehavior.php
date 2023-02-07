@@ -67,6 +67,7 @@ class VersionBehavior extends Behavior
         'versionField' => 'version_id',
         'additionalVersionFields' => ['created'],
         'fields' => null,
+        'fields_excluded' => ['modified'],
         'foreignKey' => 'foreign_key',
         'referenceName' => null,
         'onlyDirty' => false
@@ -412,6 +413,10 @@ class VersionBehavior extends Behavior
         $fields = $schema->columns();
         if ($this->_config['fields'] !== null) {
             $fields = array_intersect($fields, (array)$this->_config['fields']);
+        }
+
+        if ($this->_config['fields_excluded'] !== null) {
+            $fields = array_diff($fields, (array)$this->_config['fields_excluded']);
         }
 
         return $fields;
