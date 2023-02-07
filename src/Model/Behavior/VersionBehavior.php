@@ -63,7 +63,7 @@ class VersionBehavior extends Behavior
     // phpcs:disable
     protected $_defaultConfig = [
         'implementedFinders' => ['versions' => 'findVersions'],
-        'versionTable' => 'VersionTable',
+        'versionTable' => 'Josegonzalez/Version.Version',
         'versionField' => 'version_id',
         'additionalVersionFields' => ['created'],
         'fields' => null,
